@@ -1,0 +1,24 @@
+.body {
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+  color: white;
+
+  .perfiles {
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    
+    
+  }
+
+  .btnadmin {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: lightgreen;
+    cursor: pointer;
+    margin-top: 15px;
+  }
+}
+

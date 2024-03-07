@@ -1,0 +1,21 @@
+.boddys {
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(166, 165, 165);
+}
+
+.video-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px; /* Espacio entre cada video */
+}
+
+.video {
+  max-width: 800px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
