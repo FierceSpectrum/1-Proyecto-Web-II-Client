@@ -14,21 +14,8 @@ function Perfil(props) {
   useEffect(() => {
     if (logeado) {
       localStorage.setItem("Account", JSON.stringify(props.account));
-      navigate("/");
+      navigate("/Home");
     }
-    const handleKeyDown = (event) => {
-      if (event.key === "Enter") {
-        handleSubmit();
-      } else if (event.key === "Escape") {
-        closePopup();
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-    };
   }, [logeado, navigate, props.account]);
 
   const openPopup = () => {
@@ -45,6 +32,7 @@ function Perfil(props) {
     // Permite solo números en el campo de entrada
     const value = event.target.value.replace(/\D/g, "");
     setPinValue(value);
+    // handleSubmit();
   };
 
   const handleSubmit = () => {

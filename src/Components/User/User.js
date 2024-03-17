@@ -43,8 +43,8 @@ const User = () => {
     
     return (
         <div className="user">
-            <span className="user__name">{datauser.nombre}</span>
-            <img className="user__img" src={isValidImage ? datauser.avatar : img} alt={`${datauser.nombre}'s Avatar`} onError={handleImageError}/>
+            <span className="user__name">{datauser.name? datauser.name : datauser.full_name }</span>
+            <img className="user__img" src={isValidImage ? datauser.avatar : img} alt={`${datauser.name}'s Avatar`} onError={handleImageError}/>
             <div className="user__menu" onClick={toggleMenu}> {menuVisible ? '▲' : '▼'}</div>
             {menuVisible && (
                 <div className="user__menu__button"  >

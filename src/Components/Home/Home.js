@@ -1,19 +1,28 @@
 import React, {useState, useEffect} from "react";
+import {useNavigate} from "react-router-dom";
 import "./Home.scss";
 import User from "../User/User";
 import ReactPlayer from "react-player";
 
 function Home() {
+  const navigate = useNavigate();
+
   const [playlist, setPlaylist] = useState();
   const [videos, setVideos] = useState([]);
 
-  const user = JSON.parse(localStorage.getItem("User"));
+  const account = JSON.parse(localStorage.getItem("Account"));
+
+  useEffect(() => {
+    if (!account) {
+      navigate("/Perfiles");
+    }
+  }, [account, navigate]);
 
   useEffect(() => {
     Validar();
   }, []);
 
-  const urllogin = `http://localhost:3001/api/playlists?iduser=${user.id}`;
+  const urllogin = `http://localhost:3001/api/playlists?iduser=${account.user}`;
 
   const Validar = async () => {
     await fetch(urllogin, {

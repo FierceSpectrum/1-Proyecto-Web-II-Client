@@ -21,6 +21,7 @@ function Login() {
 
     if (logeado) {
       localStorage.setItem('User', JSON.stringify(user));
+      localStorage.setItem('Login', true);
       navigate("/Perfiles");
     }
   }, [user.id, logeado, navigate, user]);
@@ -55,7 +56,6 @@ function Login() {
             pin: user.pin,
             name: user.name,
             last_name: user.last_name,
-            country: user.country,
           };
           setUser(data);
           return;
@@ -71,7 +71,7 @@ function Login() {
 
   return (
     <>
-      <div className='boddy'>
+      <div className='boddylogin'>
         <section>
           <form onSubmit={(e) => e.preventDefault()}>
             <h1>Inicio</h1>
@@ -110,7 +110,7 @@ function Login() {
             </button>
             <div className='register'>
               <p>
-                No tengo una cuenta <a href='/#'>Registrate</a>
+                No tengo una cuenta <a href='/Register'>Registrate</a>
               </p>
             </div>
           </form>
