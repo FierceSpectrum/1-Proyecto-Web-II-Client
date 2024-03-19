@@ -1,5 +1,7 @@
-import React,{ useState, useEffect} from "react";
-import {useNavigate} from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import Email from "../Forms/Email/Email";
+import Password from "../Forms/Password/Password";
 import "./Login.scss";
 
 function Login() {
@@ -11,8 +13,6 @@ function Login() {
   const [user, setUser] = useState([]);
   const [errorlogin, setErrorLogin] = useState("");
 
-
-
   useEffect(() => {
     if (!!user.id) {
       setLogeado(true);
@@ -20,15 +20,27 @@ function Login() {
     }
 
     if (logeado) {
-      localStorage.setItem('User', JSON.stringify(user));
-      localStorage.setItem('Login', true);
+      localStorage.setItem("User", JSON.stringify(user));
+      localStorage.setItem("Login", true);
       navigate("/Perfiles");
     }
   }, [user.id, logeado, navigate, user]);
 
   const urllogin = "http://localhost:3001/api/usersLogin";
 
+
+  const validarEmail = (email) => {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
+  };
+
   const Validar = async () => {
+    const validemail = validarEmail(email);
+    if (!validemail) {
+      setErrorLogin("Invalid email format");
+      return;
+    }
+
     const data = {
       email: email,
       password: password,
@@ -71,50 +83,27 @@ function Login() {
 
   return (
     <>
-      <div className='boddylogin'>
-        <section>
-          <form onSubmit={(e) => e.preventDefault()}>
-            <h1>Inicio</h1>
-            <div className='errormesage'>
-              <p>{errorlogin}</p>
-            </div>
-            <div className='inputbox'>
-              <ion-icon name='mail-outline'></ion-icon>
-              <input
-                type='text'
-                onChange={(ev) => setEmail(ev.target.value)}
-                required
-                autoComplete='username'
-              />
-              <label htmlFor=''>Usuario</label>
-            </div>
-            <div className='inputbox'>
-              <ion-icon name='lock-closed-outline'></ion-icon>
-              <input
-                type='password'
-                onChange={(ev) => setPassword(ev.target.value)}
-                required
-                autoComplete='current-password'
-              />
-              <label htmlFor=''>Contraseña</label>
-            </div>
-            <div className='forget'>
-              <label htmlFor=''>
-                <input type='checkbox' />
-                Recordar
-              </label>
-              <a href='/#'>Olvidé la Contraseña</a>
-            </div>
-            <button onClick={() => (!!email && !!password ? Validar() : "")}>
-              Iniciar
-            </button>
-            <div className='register'>
-              <p>
-                No tengo una cuenta <a href='/Register'>Registrate</a>
-              </p>
-            </div>
+      <div className="boddylogin">
+        <div className="container">
+          <div className="heading">Sign In</div>
+          <form
+            action=""
+            className="form"
+            onSubmit={(e) => {
+              e.preventDefault();
+              Validar();
+            }}
+          >
+            <p className="Error">{errorlogin}</p>
+            <Email setEmail={setEmail} errorEmail={""} />
+
+            <Password setPassword={setPassword} errorPassword={""} />
+            <span className="forgot-password">
+              <a href="/Register">Registrate</a>
+            </span>
+            <input className="login-button" type="submit" value="Sign In" />
           </form>
-        </section>
+        </div>
       </div>
     </>
   );

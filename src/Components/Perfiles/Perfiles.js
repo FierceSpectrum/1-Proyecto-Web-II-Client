@@ -1,8 +1,10 @@
-import React, {useState, useEffect} from "react";
-import {useNavigate} from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 import "./Perfiles.scss";
 import Perfil from "../Perfil/Perfil";
+import VerificPin from "../Forms/VerificPin/VerificPin";
+
 const Perfiles = () => {
   const navigate = useNavigate();
 
@@ -61,20 +63,8 @@ const Perfiles = () => {
   const closePopup = () => {
     setShowPopup(false);
   };
-  const handlePinChange = (event) => {
-    // Permite solo números en el campo de entrada
-    const value = event.target.value.replace(/\D/g, "");
-    setPinValue(value);
-  };
 
-  const handleSubmit = () => {
-    // Validar la longitud del PIN
-    if (pinValue.length !== 6) {
-      setErrorMessage("El PIN debe tener 6 números");
-      return;
-    }
-
-    // Validar el PIN ingresado
+  useEffect(() => {
     if (pinValue.toString() === user.pin.toString()) {
       setLogeado(true);
       // Cerrar la ventana emergente
@@ -82,21 +72,14 @@ const Perfiles = () => {
     } else {
       setErrorMessage("PIN incorrecto");
     }
-  };
-
-  const handleKeyDown = (event) => {
-    if (event.key === "Enter") {
-      handleSubmit();
-    } else if (event.key === "Escape") {
-      closePopup();
-    }
-  };
+  }, [pinValue, setPinValue]);
 
   return (
     <>
-      <div className='bodyPerfiles'>
+      <div className="bodyPerfiles">
         <h2>¿Quién está viendo ahora?</h2>
-        <div className='perfiles'>
+
+        <div className="perfiles">
           {accounts.map((account, index) => (
             <Perfil
               key={index}
@@ -106,48 +89,22 @@ const Perfiles = () => {
             ></Perfil>
           ))}
         </div>
-        <button
-          className='btnadmin'
-          onClick={openPopup}
-        >
+
+        <button className="btnadmin" onClick={openPopup}>
           Administrar perfiles
         </button>
       </div>
       {showPopup && (
-        <div className='popup-overlay'>
-          <div className='popup'>
-            <div className='popup-header'>
-              <button
-                className='close-button'
-                onClick={closePopup}
-              >
-                X
-              </button>
-            </div>
-            <div className='popup-inner'>
-              <h2>Introduce tu PIN</h2>
-              <form onSubmit={(e) => e.preventDefault()}>
-                <input
-                  type='text'
-                  value={pinValue}
-                  onChange={handlePinChange}
-                  onKeyDown={handleKeyDown}
-                  inputMode='numeric'
-                  autoComplete='off'
-                  pattern='\d*'
-                  maxLength='6'
-                />
-                <button
-                  type='button'
-                  onClick={handleSubmit}
-                >
-                  Enviar
-                </button>
-              </form>
-              <p>{errorMessage}</p>
-            </div>
+        <>
+          <div className="popup-overlay">
+            <VerificPin
+              closePopup={closePopup}
+              setPin={setPinValue}
+              errorMessage={errorMessage}
+              setErrorMessage={setErrorMessage}
+            />
           </div>
-        </div>
+        </>
       )}
     </>
   );
