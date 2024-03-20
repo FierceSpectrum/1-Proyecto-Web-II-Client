@@ -36,7 +36,7 @@ function VerificPin(props) {
   };
 
   return (
-    <div>
+    <div className="verificPin">
       <form
         className="form"
         action=""

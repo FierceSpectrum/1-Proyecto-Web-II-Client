@@ -41,13 +41,13 @@ function Perfil(props) {
 
   return (
     <>
-      <div class="flip-card" onClick={openPopup}>
-        <div class="flip-card-front">
-          <div class="profile-image">
+      <div className="flip-card" onClick={openPopup}>
+        <div className="flip-card-front">
+          <div className="profile-image">
             <div className="avatar">
               <img className="image" src={props.avatar} alt="" />
             </div>
-            <div class="name">{props.full_name}</div>
+            <div className="name">{props.full_name}</div>
           </div>
         </div>
       </div>
