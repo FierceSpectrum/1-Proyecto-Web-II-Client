@@ -4,6 +4,7 @@ import "./HomeAdmin.scss";
 import User from "../User/User";
 import PerfilEdit from "../PerfilEdit/PerfilEdit";
 import CreatAccount from "../../Accets/Perfil-usuario.webp";
+import PlaylistEdit from "../PlaylistEdit/PlaylistEdit";
 
 function HomeAdmin() {
   const navigate = useNavigate();
@@ -11,11 +12,12 @@ function HomeAdmin() {
   const [admin, setAdmin] = useState(JSON.parse(localStorage.getItem("Admin")));
 
   const [accounts, setAccounts] = useState([]);
+  const [showButton, setShowButton] = useState(true);
 
   useEffect(() => {
     console.log(!admin);
     if (!admin) {
-      navigate("/Perfiles");
+      navigate("/Profiles");
     } else {
       getAccounts();
     }
@@ -59,6 +61,7 @@ function HomeAdmin() {
             avatar={account.avatar}
             full_name={account.full_name}
             user={account}
+            closeButton={setShowButton}
           ></PerfilEdit>
         ))}
         {Object.keys(accounts).length < 6 ? (
@@ -69,15 +72,19 @@ function HomeAdmin() {
             user={[]}
             iduser={!admin ? 0 : admin.id}
             edit={"Create"}
+            closeButton={setShowButton}
           ></PerfilEdit>
         ) : (
           <></>
         )}
       </div>
       <div className="button-return">
-        <button onClick={() => navigate("/Perfiles")} class="button">
+        {showButton && <PlaylistEdit iduser={!admin ? 0 : admin.id} />}
+      </div>
+      <div className="button-return">
+        <button onClick={() => navigate("/Perfiles")} className="button">
           <svg
-            class="svg-icon"
+            className="svg-icon"
             fill="none"
             height="20"
             viewBox="0 0 20 20"
@@ -89,7 +96,7 @@ function HomeAdmin() {
               <path d="m7.69867 1.58163-1.44987 3.28435c-.18587.42104.00478.91303.42582 1.0989l3.28438 1.44986"></path>
             </g>
           </svg>
-          <span class="lable">Return</span>
+          <span className="lable">Return</span>
         </button>
       </div>
     </div>

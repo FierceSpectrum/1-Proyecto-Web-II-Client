@@ -39,7 +39,7 @@ function App() {
             element={<Register />}
           />
           <Route
-            path='/Perfiles'
+            path='/Profiles'
             element={<Perfiles />}
           />
           <Route

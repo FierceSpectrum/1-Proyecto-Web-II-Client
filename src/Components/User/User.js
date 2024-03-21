@@ -14,7 +14,7 @@ const User = () => {
   const handleLogout = () => {
     // setLogeado(false);
     localStorage.setItem("Account", JSON.stringify(null));
-    navigate("/Perfiles");
+    navigate("/Profiles");
   };
 
   useEffect(() => {
@@ -57,8 +57,20 @@ const User = () => {
         <div className="user__menu__button">
           <ul>
             <li>
-              <button onClick={handleLogout}>Cerrar Sesión</button>
+              <button onClick={handleLogout}>Profiles</button>
             </li>
+            {datauser.name && (
+              <li>
+                <button
+                  onClick={() => {
+                    localStorage.clear();
+                    navigate("/");
+                  }}
+                >
+                  Sign off
+                </button>
+              </li>
+            )}
           </ul>
         </div>
       )}

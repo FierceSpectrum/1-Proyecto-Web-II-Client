@@ -50,7 +50,7 @@ function VerificPin(props) {
         </span>
 
         <div className="info">
-          <span className="title">Introduce el PIN</span>
+          <span className="title">Enter the PIN</span>
           <p className="description">{props.errorMessage}</p>
         </div>
         <div className="input-fields">

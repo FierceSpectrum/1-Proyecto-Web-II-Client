@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "./Perfiles.scss";
 import Perfil from "../Perfil/Perfil";
 import VerificPin from "../Forms/VerificPin/VerificPin";
+import User from "../User/User";
 
 const Perfiles = () => {
   const navigate = useNavigate();
@@ -77,7 +78,7 @@ const Perfiles = () => {
   return (
     <>
       <div className="bodyPerfiles">
-        <h2>¿Quién está viendo ahora?</h2>
+        <h2>Who is watching now?</h2>
 
         <div className="perfiles">
           {accounts.map((account, index) => (
@@ -91,7 +92,7 @@ const Perfiles = () => {
         </div>
 
         <button className="btnadmin" onClick={openPopup}>
-          Administrar perfiles
+          Manage profiles
         </button>
       </div>
       {showPopup && (

@@ -31,11 +31,13 @@ function PerfilEdit(props) {
   const openPopup = () => {
     clear();
     setShowPopup(true);
+    props.closeButton(showPopup);
   };
 
   const closePopup = () => {
     clear();
     setShowPopup(false);
+    props.closeButton(showPopup);
   };
 
   const PopupAvatars = () => {
@@ -379,7 +381,6 @@ function PerfilEdit(props) {
                     {avatars.map((avatar, index) => (
                       <li
                         key={index}
-                        className="Austria"
                         onClick={() => setAvatar(avatar.url)}
                       >
                         <img src={avatar.url} alt="" />

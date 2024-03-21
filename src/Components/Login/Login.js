@@ -22,12 +22,11 @@ function Login() {
     if (logeado) {
       localStorage.setItem("User", JSON.stringify(user));
       localStorage.setItem("Login", true);
-      navigate("/Perfiles");
+      navigate("/Profiles");
     }
   }, [user.id, logeado, navigate, user]);
 
   const urllogin = "http://localhost:3001/api/usersLogin";
-
 
   const validarEmail = (email) => {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
