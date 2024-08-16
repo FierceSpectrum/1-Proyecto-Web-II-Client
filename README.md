@@ -1,70 +1,85 @@
-# Getting Started with Create React App
+# Proyecto Web 2 Client
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este proyecto fue desarrollado durante el primer cuatrimestre del año 2024 como parte del curso Web 2. Es la parte del frontend de una aplicación web que permite a los padres de familia gestionar el contenido que ven sus hijos en una plataforma similar a Netflix. La aplicación está construida utilizando React, SCSS, HTML y CSS.
 
-## Available Scripts
+## Descripción del Proyecto
 
-In the project directory, you can run:
+El "Proyecto Web 2 Client" es una aplicación frontend diseñada para que los padres de familia puedan controlar y gestionar los perfiles de sus hijos. Cada usuario puede tener hasta seis perfiles, y cada perfil puede tener una playlist de videos de YouTube. La aplicación permite a los usuarios registrar una cuenta, iniciar sesión, crear y gestionar perfiles, y administrar la playlist asociada a cada perfil.
 
-### `npm start`
+### Características Principales
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Registro de Usuario:** Permite a los padres de familia crear una cuenta en la plataforma ingresando información como nombre, apellido, email, contraseña, país, y un PIN de seguridad. 
+- **Inicio de Sesión:** Los usuarios pueden iniciar sesión utilizando su email y contraseña.
+- **Gestión de Perfiles:** Similar a Netflix, después de iniciar sesión, los usuarios pueden ver una lista de perfiles creados. Pueden seleccionar un perfil ingresando un PIN asociado.
+- **Administración de Perfiles:** Los usuarios pueden crear, editar y eliminar perfiles. Cada perfil puede tener una imagen, un nombre, y un PIN de acceso.
+- **Playlist de Videos:** Cada usuario puede crear una playlist de videos de YouTube, que es compartida entre todos los perfiles. Se pueden agregar, actualizar y eliminar videos de esta playlist.
+- **Navegación y Visualización de Contenido:** Una vez dentro de un perfil, el usuario puede ver la lista de videos en la playlist y reproducirlos.
+- **Seguridad:** La aplicación incluye PINs para proteger tanto la entrada a perfiles como la edición de los mismos, asegurando que solo los usuarios autorizados puedan realizar cambios.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Estructura del Proyecto
 
-### `npm test`
+El proyecto está organizado en varios componentes y carpetas:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Componentes Principales:**
+  - `Register`: Componente para el registro de nuevos usuarios.
+  - `Login`: Componente para el inicio de sesión.
+  - `Profiles`: Pantalla donde se muestran los perfiles creados y se permite seleccionar uno para ingresar.
+  - `ProfilesEdit`: Interfaz para la administración de perfiles (crear, editar, eliminar).
+  - `Home`: Página principal que muestra la playlist de videos.
+  - `HomeAdmin`: Página de administración de perfiles y playlist.
+  - `PlaylistsEdit`: Componente para la edición de la playlist de videos.
+  - `User`: Componente que muestra la barra de navegación y los datos del usuario.
 
-### `npm run build`
+- **Carpeta `Forms`:** Contiene los formularios relacionados con el registro y el login, como:
+  - `Password`: Para la creación y confirmación de la contraseña.
+  - `Name`: Para el nombre del usuario.
+  - `Email`: Para el email del usuario con verificación.
+  - `PIN`: Para la creación y verificación del PIN de seguridad.
+  - `Country`: Para la selección del país del usuario.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Tecnologías Utilizadas
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Frontend:**
+  - **React:** Biblioteca de JavaScript utilizada para construir la interfaz de usuario.
+  - **SCSS:** Lenguaje de extensión de CSS para estilos más estructurados y reutilizables.
+  - **HTML y CSS:** Estructura y estilos básicos del proyecto.
+  
+- **Lenguajes:**
+  - **JavaScript:** 49.9% del código.
+  - **SCSS:** 48.1% del código.
+  - **HTML:** 1.3% del código.
+  - **CSS:** 0.7% del código.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Ejecución del Proyecto
 
-### `npm run eject`
+Para ejecutar el proyecto localmente, sigue estos pasos:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. Clona el repositorio en tu máquina local utilizando el siguiente comando:
+    ```bash
+    git clone https://github.com/FierceSpectrum/1-Proyecto-Web-II-Client
+    ```
+2. Navega hasta la carpeta del proyecto:
+    ```bash
+    cd 1-Proyecto-Web-II-Client
+    ```
+3. Instala las dependencias necesarias:
+    ```bash
+    npm install
+    ```
+4. Inicia la aplicación:
+    ```bash
+    npm start
+    ```
+5. La aplicación estará disponible en `http://localhost:3000`.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Estado del Proyecto
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Este proyecto fue desarrollado como parte del curso Web 2 y está completo en términos de funcionalidades frontend. No se han realizado actualizaciones desde su creación.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Autor
 
-## Learn More
+Este proyecto fue desarrollado en su totalidad por [Benjamín Sandí](https://github.com/FierceSpectrum) durante el primer cuatrimestre del año 2024.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Licencia
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Este proyecto no tiene una licencia formal y fue creado con fines educativos. No está destinado para uso comercial.
