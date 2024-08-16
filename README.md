@@ -1,10 +1,10 @@
-# Proyecto Web 2 Client
+# 1° Proyecto Web 2 Client
 
 Este proyecto fue desarrollado durante el primer cuatrimestre del año 2024 como parte del curso Web 2. Es la parte del frontend de una aplicación web que permite a los padres de familia gestionar el contenido que ven sus hijos en una plataforma similar a Netflix. La aplicación está construida utilizando React, SCSS, HTML y CSS.
 
 ## Descripción del Proyecto
 
-El "Proyecto Web 2 Client" es una aplicación frontend diseñada para que los padres de familia puedan controlar y gestionar los perfiles de sus hijos. Cada usuario puede tener hasta seis perfiles, y cada perfil puede tener una playlist de videos de YouTube. La aplicación permite a los usuarios registrar una cuenta, iniciar sesión, crear y gestionar perfiles, y administrar la playlist asociada a cada perfil.
+El "1° Proyecto Web 2 Client" es una aplicación frontend diseñada para que los padres de familia puedan controlar y gestionar los perfiles de sus hijos. Cada usuario puede tener hasta seis perfiles, y cada perfil puede tener una playlist de videos de YouTube. La aplicación permite a los usuarios registrar una cuenta, iniciar sesión, crear y gestionar perfiles, y administrar la playlist asociada a cada perfil.
 
 ### Características Principales
 
